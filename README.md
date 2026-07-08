@@ -140,7 +140,6 @@ baseURL: 'http://localhost:8090/'
 
 - 服务器：112.74.97.85（阿里云 Ubuntu）
 - SSH：root
-- MySQL root 密码：123456
 - 后端端口：8090
 - Nginx 端口：80
 
