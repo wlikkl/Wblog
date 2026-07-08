@@ -10,7 +10,7 @@
 					<img :src="user.avatar" class="user-avatar">
 				</div>
 				<el-dropdown-menu slot="dropdown" class="user-dropdown">
-					<a target="_blank" href="https://github.com/Naccl/NBlog">
+					<a target="_blank" href="https://github.com/wilk/NBlog">
 						<el-dropdown-item>
 							<SvgIcon icon-class="github" class-name="svg"/>
 							<span>GitHub</span>
@@ -28,16 +28,16 @@
 
 <script>
 	import {mapGetters} from 'vuex'
-	import Breadcrumb from '@/components/Breadcrumb'
-	import Hamburger from '@/components/Hamburger'
-	import SvgIcon from '@/components/SvgIcon'
+		import Breadcrumb from '@/components/Breadcrumb'
+		import Hamburger from '@/components/Hamburger'
+		import SvgIcon from '@/components/SvgIcon'
 
-	export default {
-		components: {
-			Breadcrumb,
-			Hamburger,
-			SvgIcon
-		},
+		export default {
+			components: {
+				Breadcrumb,
+				Hamburger,
+				SvgIcon
+			},
 		data() {
 			return {
 				user: null,
@@ -76,8 +76,9 @@
 		height: 50px;
 		overflow: hidden;
 		position: relative;
-		background: #fff;
-		box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
+		background: #fff !important;
+		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) !important;
+		border-bottom: 1px solid #e6e6e6;
 		user-select: none;
 
 		.hamburger-container {
@@ -89,7 +90,7 @@
 			-webkit-tap-highlight-color: transparent;
 
 			&:hover {
-				background: rgba(0, 0, 0, .025)
+				background: rgba(0, 0, 0, 0.025);
 			}
 		}
 
@@ -101,6 +102,8 @@
 			float: right;
 			height: 100%;
 			line-height: 50px;
+			display: flex;
+			align-items: center;
 
 			&:focus {
 				outline: none;
@@ -119,7 +122,7 @@
 					transition: background .3s;
 
 					&:hover {
-						background: rgba(0, 0, 0, .025)
+						background: rgba(0, 0, 0, 0.025);
 					}
 				}
 			}
@@ -136,6 +139,7 @@
 						width: 40px;
 						height: 40px;
 						border-radius: 10px;
+						border: 2px solid rgba(0, 0, 0, 0.05);
 					}
 
 					.el-icon-caret-bottom {

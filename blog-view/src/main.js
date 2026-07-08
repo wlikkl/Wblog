@@ -4,6 +4,8 @@ import router from './router'
 import store from './store'
 //自定义css
 import './assets/css/base.css'
+//dark glass theme
+import './assets/css/theme.css'
 //阿里icon
 import './assets/css/icon/iconfont.css'
 //typo.css
@@ -24,7 +26,7 @@ import './util/directive'
 import VueLazyload from 'vue-lazyload'
 
 console.log(
-	'%c NBlog %c By Naccl %c https://github.com/Naccl/NBlog',
+	'%c NBlog %c By wilk %c https://github.com/wilk/NBlog',
 	'background:#35495e ; padding: 1px; border-radius: 3px 0 0 3px;  color: #fff',
 	'background:#41b883 ; padding: 1px; border-radius: 0 3px 3px 0;  color: #000',
 	'background:transparent'
@@ -71,6 +73,22 @@ Vue.prototype.scrollToTop = function () {
 
 
 Vue.config.productionTip = false
+
+// Global scroll-triggered fade-in observer
+document.addEventListener('DOMContentLoaded', () => {
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach(e => {
+			if (e.isIntersecting) {
+				e.target.classList.add('visible')
+				observer.unobserve(e.target)
+			}
+		})
+	}, {threshold: 0.1})
+	const watch = () => document.querySelectorAll('.fade-up:not(.visible)').forEach(el => observer.observe(el))
+	// Watch for dynamically added nodes
+	new MutationObserver(watch).observe(document.body, {childList: true, subtree: true})
+	watch()
+})
 
 new Vue({
 	router,

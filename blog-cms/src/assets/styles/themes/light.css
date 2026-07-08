@@ -1,0 +1,65 @@
+/* ============================================
+   浅色/白天主题 - 清爽明亮风格
+   ============================================ */
+.theme-light {
+  /* 主色调 */
+  --admin-accent: #6366f1;
+  --admin-accent-2: #818cf8;
+  --admin-accent-3: #4f46e5;
+  --admin-accent-glow: rgba(99, 102, 241, 0.2);
+
+  /* 背景 */
+  --admin-bg: #f8fafc;
+  --admin-bg-2: #f1f5f9;
+  --admin-bg-3: #ffffff;
+  --admin-bg-card: rgba(255, 255, 255, 0.95);
+  --admin-bg-hover: rgba(99, 102, 241, 0.06);
+
+  /* 侧边栏 */
+  --admin-sidebar-bg: #1e293b;
+  --admin-sidebar-hover: rgba(99, 102, 241, 0.15);
+  --admin-sidebar-active: rgba(99, 102, 241, 0.22);
+  --admin-sidebar-text: rgba(255, 255, 255, 0.7);
+  --admin-sidebar-text-active: #a5b4fc;
+
+  /* 导航栏 */
+  --admin-navbar-bg: rgba(255, 255, 255, 0.92);
+  --admin-navbar-border: rgba(0, 0, 0, 0.08);
+
+  /* 文字 */
+  --admin-text: #1e293b;
+  --admin-text-2: rgba(30, 41, 59, 0.7);
+  --admin-text-3: rgba(30, 41, 59, 0.45);
+
+  /* 边框 */
+  --admin-border: rgba(0, 0, 0, 0.08);
+  --admin-border-2: rgba(0, 0, 0, 0.04);
+
+  /* 输入框 */
+  --admin-input-bg: #ffffff;
+  --admin-input-border: rgba(0, 0, 0, 0.12);
+  --admin-input-focus: #6366f1;
+
+  /* 表格 */
+  --admin-table-header: rgba(99, 102, 241, 0.06);
+  --admin-table-row-hover: rgba(99, 102, 241, 0.04);
+  --admin-table-stripe: rgba(0, 0, 0, 0.02);
+
+  /* 卡片 */
+  --admin-card-bg: #ffffff;
+  --admin-card-border: rgba(0, 0, 0, 0.06);
+  --admin-card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+
+  /* 滚动条 */
+  --admin-scrollbar-thumb: rgba(99, 102, 241, 0.25);
+  --admin-scrollbar-track: rgba(0, 0, 0, 0.04);
+
+  /* 状态色 */
+  --admin-success: #22c55e;
+  --admin-warning: #f59e0b;
+  --admin-danger: #ef4444;
+  --admin-info: #6366f1;
+
+  /* NProgress */
+  --admin-nprogress: #6366f1;
+}

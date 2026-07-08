@@ -47,6 +47,7 @@
 		height: 50px;
 		line-height: 50px;
 		background: #2b2f3a;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 		text-align: center;
 		overflow: hidden;
 

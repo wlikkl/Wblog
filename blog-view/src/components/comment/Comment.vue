@@ -87,7 +87,7 @@
 
 	.nickname {
 		font-weight: bolder;
-		color: #000;
+		color: var(--text-primary);
 	}
 
 	.comment .el-button {

@@ -180,13 +180,14 @@
 
 <style>
 	.form {
-		background: #fff;
+		background: transparent;
 		position: relative;
 	}
 
 	.form h3 {
 		margin: 5px;
 		font-weight: 500 !important;
+		color: var(--text-primary);
 	}
 
 	.form .m-small {
@@ -204,11 +205,12 @@
 	}
 
 	.el-form textarea, .el-form input {
-		color: black;
+		color: var(--text-primary) !important;
 	}
 
 	.el-form .el-form-item__label {
 		padding-right: 3px;
+		color: var(--text-secondary) !important;
 	}
 
 	.emoji {
@@ -233,11 +235,11 @@
 	}
 
 	.emoji-box {
-		color: #222;
+		color: var(--text-primary);
 		overflow: visible;
-		background: #fff;
-		border: 1px solid #E5E9EF;
-		box-shadow: 0 11px 12px 0 rgba(106, 115, 133, 0.3);
+		background: #1a1a24;
+		border: 1px solid rgba(255,255,255,0.1);
+		box-shadow: 0 11px 24px 0 rgba(0, 0, 0, 0.5);
 		border-radius: 8px;
 		width: 340px;
 		position: absolute;
@@ -253,7 +255,7 @@
 		font-size: 12px;
 		line-height: 16px;
 		margin: 13px 15px 0;
-		color: #757575;
+		color: var(--text-secondary);
 	}
 
 	.emoji-box .emoji-wrap {
@@ -265,7 +267,7 @@
 
 	.emoji-box .emoji-wrap .emoji-list {
 		height: 33px;
-		color: #111;
+		color: var(--text-primary);
 		border-radius: 4px;
 		transition: background 0.2s;
 		display: inline-block;
@@ -274,7 +276,7 @@
 	}
 
 	.emoji-box .emoji-wrap .emoji-list:hover {
-		background-color: #ddd;
+		background-color: rgba(255,255,255,0.1);
 	}
 
 	.emoji-box .emoji-wrap .emoji-list img {
@@ -287,7 +289,7 @@
 		position: relative;
 		height: 36px;
 		overflow: hidden;
-		background-color: #f4f4f4;
+		background-color: rgba(255,255,255,0.04);
 		border-radius: 0 0 4px 4px;
 	}
 
@@ -300,7 +302,7 @@
 	}
 
 	.emoji-box .emoji-tabs .tab-link.on {
-		background-color: #fff;
+		background-color: rgba(167,139,250,0.15);
 	}
 
 	.emoji-box .emoji-tabs .tab-link img {
@@ -308,7 +310,7 @@
 	}
 
 	.emoji-box .emoji-tabs .tab-link:hover {
-		background: #e7e7e7;
+		background: rgba(255,255,255,0.08);
 	}
 
 	.mask {

@@ -134,7 +134,7 @@
 	.moments {
 		margin-left: 26px !important;
 		padding-left: 40px !important;
-		border-left: 1px solid #dee5e7 !important;
+		border-left: 1px solid rgba(167,139,250,0.25) !important;
 	}
 
 	.moment {
@@ -147,6 +147,12 @@
 
 	.card {
 		width: 100% !important;
+		background: rgba(167,139,250,0.06) !important;
+		border: 1px solid rgba(167,139,250,0.15) !important;
+	}
+
+	.card > .content {
+		color: var(--text-primary) !important;
 	}
 
 	.card:before {
@@ -165,19 +171,26 @@
 		transition: background .1s ease !important;
 		background-color: inherit !important;
 		border-style: solid !important;
-		border-color: #d4d4d5 !important;
+		border-color: rgba(167,139,250,0.4) !important;
 	}
 
 	.content.m-top {
 		padding: 10px 14px !important;
+		color: var(--text-primary) !important;
 	}
 
 	.content .right.floated {
 		font-size: 12px !important;
+		color: var(--text-secondary) !important;
+	}
+
+	.content.typo {
+		color: var(--text-primary) !important;
 	}
 
 	.content.typo * {
 		font-size: 14px !important;
+		color: var(--text-primary) !important;
 	}
 
 	.extra.content {
@@ -185,16 +198,16 @@
 	}
 
 	.extra.content a {
-		color: rgba(0, 0, 0, 0.7) !important;
+		color: var(--text-secondary) !important;
 		font-size: 12px !important;
 	}
 
 	.extra.content a:hover {
-		color: red !important;
+		color: var(--accent) !important;
 	}
 
 	.extra.content .like-color {
-		color: red !important;
+		color: #f87171 !important;
 	}
 
 	.extra.content i {

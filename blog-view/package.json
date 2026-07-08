@@ -2,7 +2,7 @@
   "name": "blog-view",
   "version": "1.0.0",
   "description": "NBlog view",
-  "author": "Naccl <i@naccl.top>",
+  "author": "wilk <i@wilk.top>",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",

@@ -58,9 +58,27 @@
 			</el-row>
 
 			<el-form-item style="text-align: right;">
+				<el-button type="success" @click="aiDialogVisible=true" :disabled="aiLoading">AI 写文章</el-button>
+				<el-button type="warning" @click="generateCoverImage" :disabled="!form.title || aiLoading">AI 配图</el-button>
 				<el-button type="primary" @click="dialogVisible=true">保存</el-button>
 			</el-form-item>
 		</el-form>
+
+		<!--AI生成文章对话框-->
+		<el-dialog title="AI 生成文章" width="40%" :visible.sync="aiDialogVisible">
+			<el-form label-width="80px">
+				<el-form-item label="文章主题">
+					<el-input v-model="aiTopic" placeholder="请输入文章主题，如：Spring Boot入门指南"></el-input>
+				</el-form-item>
+				<el-form-item label="文章描述">
+					<el-input v-model="aiDescription" type="textarea" :rows="3" placeholder="可选：描述文章风格、字数要求等"></el-input>
+				</el-form-item>
+			</el-form>
+			<span slot="footer">
+				<el-button @click="aiDialogVisible=false" :disabled="aiLoading">取消</el-button>
+				<el-button type="success" @click="generateArticle" :loading="aiLoading" :disabled="!aiTopic">开始生成</el-button>
+			</span>
+		</el-dialog>
 
 		<!--编辑可见性状态对话框-->
 		<el-dialog title="博客可见性" width="30%" :visible.sync="dialogVisible">
@@ -104,7 +122,7 @@
 
 <script>
 	import Breadcrumb from "@/components/Breadcrumb";
-	import {getCategoryAndTag, saveBlog, getBlogById, updateBlog} from '@/api/blog'
+	import {getCategoryAndTag, saveBlog, getBlogById, updateBlog, aiGenerateArticle, aiGenerateImage} from '@/api/blog'
 
 	export default {
 		name: "WriteBlog",
@@ -114,6 +132,10 @@
 				categoryList: [],
 				tagList: [],
 				dialogVisible: false,
+				aiDialogVisible: false,
+				aiTopic: '',
+				aiDescription: '',
+				aiLoading: false,
 				radio: 1,
 				form: {
 					title: '',
@@ -208,6 +230,57 @@
 						this.dialogVisible = false
 						return this.msgError('请填写必要的表单项')
 					}
+				})
+			},
+			generateArticle() {
+				const topic = this.aiTopic.trim()
+				if (!topic) return
+				this.aiLoading = true
+				const prompt = this.aiDescription.trim()
+					? `主题：${topic}。额外要求：${this.aiDescription}`
+					: topic
+				aiGenerateArticle(prompt).then(res => {
+					const data = res.data
+					if (data.title) this.form.title = data.title
+					if (data.content) {
+						const lines = data.content.split('\n')
+						let desc = ''
+						let body = data.content
+						for (let i = 0; i < lines.length && i < 4; i++) {
+							if (lines[i].trim() && !lines[i].startsWith('#')) {
+								desc = lines[i].trim().substring(0, 200)
+								body = lines.slice(i).join('\n').trim()
+								if (lines[i].startsWith('## ')) break
+							}
+						}
+						if (desc) this.form.description = desc
+						this.form.content = body
+						const text = body.replace(/[#*`~>\-\n\r\s]/g, '')
+						this.form.words = text.length || 100
+					}
+					this.aiDialogVisible = false
+					this.msgSuccess('文章生成成功！请选择和填写分类、标签后保存')
+				}).catch(() => {
+					this.msgError('生成失败，请稍后重试')
+				}).finally(() => {
+					this.aiLoading = false
+				})
+			},
+			generateCoverImage() {
+				const title = this.form.title.trim()
+				if (!title) {
+					this.msgError('请先填写文章标题')
+					return
+				}
+				this.aiLoading = true
+				const prompt = `Technology blog cover image for article titled "${title}", modern and clean design, suitable for tech blog, 16:9 aspect ratio, high quality`
+				aiGenerateImage(prompt).then(res => {
+					this.form.firstPicture = res.data
+					this.msgSuccess('封面图生成成功！')
+				}).catch(() => {
+					this.msgError('生成失败，请稍后重试')
+				}).finally(() => {
+					this.aiLoading = false
 				})
 			}
 		}

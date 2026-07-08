@@ -1,0 +1,65 @@
+/* ============================================
+   紫罗兰主题 - 匹配博客前台风格
+   ============================================ */
+.theme-violet {
+  /* 主色调 */
+  --admin-accent: #a78bfa;
+  --admin-accent-2: #c4b5fd;
+  --admin-accent-3: #7c3aed;
+  --admin-accent-glow: rgba(167, 139, 250, 0.3);
+
+  /* 背景 */
+  --admin-bg: #0e0a14;
+  --admin-bg-2: #14101c;
+  --admin-bg-3: #1a1428;
+  --admin-bg-card: rgba(20, 16, 28, 0.85);
+  --admin-bg-hover: rgba(167, 139, 250, 0.08);
+
+  /* 侧边栏 */
+  --admin-sidebar-bg: #0c0812;
+  --admin-sidebar-hover: rgba(167, 139, 250, 0.12);
+  --admin-sidebar-active: rgba(167, 139, 250, 0.18);
+  --admin-sidebar-text: rgba(255, 255, 255, 0.65);
+  --admin-sidebar-text-active: #c4b5fd;
+
+  /* 导航栏 */
+  --admin-navbar-bg: rgba(14, 10, 20, 0.92);
+  --admin-navbar-border: rgba(167, 139, 250, 0.1);
+
+  /* 文字 */
+  --admin-text: #ede8f0;
+  --admin-text-2: rgba(255, 255, 255, 0.7);
+  --admin-text-3: rgba(255, 255, 255, 0.45);
+
+  /* 边框 */
+  --admin-border: rgba(167, 139, 250, 0.12);
+  --admin-border-2: rgba(255, 255, 255, 0.06);
+
+  /* 输入框 */
+  --admin-input-bg: rgba(255, 255, 255, 0.04);
+  --admin-input-border: rgba(255, 255, 255, 0.1);
+  --admin-input-focus: #a78bfa;
+
+  /* 表格 */
+  --admin-table-header: rgba(167, 139, 250, 0.08);
+  --admin-table-row-hover: rgba(167, 139, 250, 0.06);
+  --admin-table-stripe: rgba(255, 255, 255, 0.02);
+
+  /* 卡片 */
+  --admin-card-bg: rgba(20, 16, 28, 0.7);
+  --admin-card-border: rgba(167, 139, 250, 0.1);
+  --admin-card-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
+
+  /* 滚动条 */
+  --admin-scrollbar-thumb: rgba(167, 139, 250, 0.3);
+  --admin-scrollbar-track: rgba(255, 255, 255, 0.03);
+
+  /* 状态色 */
+  --admin-success: #34d399;
+  --admin-warning: #fbbf24;
+  --admin-danger: #f87171;
+  --admin-info: #a78bfa;
+
+  /* NProgress */
+  --admin-nprogress: #a78bfa;
+}

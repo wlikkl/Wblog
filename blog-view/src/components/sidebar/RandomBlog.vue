@@ -1,15 +1,14 @@
 <template>
-	<!--随机文章-->
-	<div class="ui segments m-box">
-		<div class="ui secondary segment"><i class="bookmark icon"></i>随机文章</div>
-		<div class="ui yellow segment">
-			<div class="ui divided items">
-				<div class="m-item" v-for="blog in randomBlogList" :key="blog.id" @click.prevent="toBlog(blog)">
-					<div class="img" :style="{'background-image':'url(' + blog.firstPicture + ')'}"></div>
-					<div class="info">
-						<div class="date">{{ blog.createTime | dateFormat('YYYY-MM-DD') }}</div>
-						<div class="title">{{ blog.title }}</div>
-					</div>
+	<div class="random-card glass-card fade-up">
+		<div class="random-header">
+			<i class="bookmark icon"></i> 随机文章
+		</div>
+		<div class="random-body">
+			<div class="random-item" v-for="blog in randomBlogList" :key="blog.id" @click.prevent="toBlog(blog)">
+				<div class="random-img" :style="{'background-image':'url(' + blog.firstPicture + ')'}"></div>
+				<div class="random-info">
+					<div class="random-date">{{ blog.createTime | dateFormat('MM-dd') }}</div>
+					<div class="random-title">{{ blog.title }}</div>
 				</div>
 			</div>
 		</div>
@@ -19,69 +18,65 @@
 <script>
 	export default {
 		name: "RandomBlog",
-		props: {
-			randomBlogList: {
-				type: Array,
-				required: true
-			},
-		},
+		props: {randomBlogList: {type: Array, required: true}},
 		methods: {
-			toBlog(blog) {
-				this.$store.dispatch('goBlogPage', blog)
-			}
+			toBlog(blog) { this.$store.dispatch('goBlogPage', blog) }
 		}
 	}
 </script>
 
 <style scoped>
-	.secondary.segment {
-		padding: 10px;
-	}
-
-	.ui.divided.items .m-item:first-child {
-		margin-top: 0;
-	}
-
-	.ui.divided.items .m-item {
-		margin-top: 1rem;
-		height: 7rem;
-		position: relative;
-		overflow: hidden;
-		border-radius: 5px;
-		cursor: pointer;
-		user-select: none;
-	}
-
-	.ui.divided.items .m-item .img {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		object-fit: cover;
-		background-position-x: center;
-		background-position-y: center;
-		background-size: cover;
-	}
-
-	.ui.divided.items .m-item .info {
-		z-index: 1;
-		background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.8));
-		position: absolute;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		padding: .5rem !important;
-		font-size: 12px;
-		color: white;
-	}
-
-	.ui.divided.items .m-item .info .title {
-		overflow: hidden;
-		text-overflow: ellipsis;
-		display: -webkit-box;
-		-webkit-box-orient: vertical;
-		-webkit-line-clamp: 1;
-		word-break: break-word;
-	}
+.random-card {
+	padding: 0;
+	margin-top: 20px;
+	overflow: hidden;
+}
+.random-header {
+	padding: 14px 18px;
+	font-size: 15px;
+	font-weight: 600;
+	color: var(--text-primary);
+	border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+.random-body {
+	padding: 8px 12px;
+}
+.random-item {
+	display: flex;
+	gap: 10px;
+	padding: 8px 0;
+	cursor: pointer;
+	border-radius: 8px;
+	transition: all .2s;
+}
+.random-item:hover {
+	background: rgba(255,255,255,0.03);
+}
+.random-img {
+	width: 56px;
+	height: 56px;
+	border-radius: 8px;
+	flex-shrink: 0;
+	background-size: cover;
+	background-position: center;
+}
+.random-info {
+	flex: 1;
+	min-width: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.random-date {
+	font-size: 11px;
+	color: var(--text-secondary);
+	margin-bottom: 2px;
+}
+.random-title {
+	font-size: 13px;
+	color: var(--text-primary);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
 </style>

@@ -88,3 +88,21 @@ export function updateBlog(blog) {
 		}
 	})
 }
+
+export function aiGenerateArticle(topic) {
+	return axios({
+		url: 'ai/article',
+		method: 'POST',
+		data: {topic},
+		timeout: 120000
+	})
+}
+
+export function aiGenerateImage(prompt) {
+	return axios({
+		url: 'ai/image',
+		method: 'POST',
+		data: {prompt},
+		timeout: 60000
+	})
+}

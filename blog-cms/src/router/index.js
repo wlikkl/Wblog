@@ -157,6 +157,21 @@ const routes = [
 		]
 	},
 	{
+		path: '/monitor',
+		name: 'Monitor',
+		component: Layout,
+		redirect: '/monitor/server',
+		meta: {title: '服务器监控', icon: 'el-icon-cpu'},
+		children: [
+			{
+				path: 'server',
+				name: 'ServerMonitor',
+				component: () => import('@/views/monitor/Monitor'),
+				meta: {title: '系统监控', icon: 'el-icon-data-line'}
+			},
+		]
+	},
+	{
 		path: '/system',
 		name: 'System',
 		redirect: '/system/account',
@@ -174,6 +189,12 @@ const routes = [
 				name: 'JobList',
 				component: () => import('@/views/system/ScheduleJobList'),
 				meta: {title: '定时任务', icon: 'el-icon-alarm-clock'}
+			},
+			{
+				path: 'article-generator',
+				name: 'ArticleGenerator',
+				component: () => import('@/views/system/ArticleGenerator'),
+				meta: {title: '文章生成', icon: 'el-icon-document-add'}
 			},
 		]
 	},

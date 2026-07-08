@@ -57,10 +57,17 @@
 
 <style>
 	.el-pagination.is-background .btn-next, .el-pagination.is-background .btn-prev, .el-pagination.is-background .el-pager li {
-		background-color: #ffffff !important;
+		background-color: rgba(255,255,255,0.04) !important;
+		color: var(--text-secondary) !important;
 	}
 
 	.el-pagination.is-background .el-pager li:not(.disabled).active {
-		background-color: #409EFF !important;
+		background: linear-gradient(135deg, #7c3aed, #a78bfa) !important;
+		color: #fff !important;
+	}
+
+	.el-pagination.is-background .el-pager li:hover:not(.disabled):not(.active) {
+		background: rgba(167,139,250,0.15) !important;
+		color: var(--accent) !important;
 	}
 </style>

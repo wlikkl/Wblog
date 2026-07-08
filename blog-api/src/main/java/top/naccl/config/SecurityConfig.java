@@ -49,6 +49,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 				.authorizeRequests()
 				//放行获取网页标题后缀的请求
 				.antMatchers("/admin/webTitleSuffix").permitAll()
+				//放行文章生成器配置API（供定时脚本使用）
+				.antMatchers(HttpMethod.GET, "/admin/article-generator/config").permitAll()
+				.antMatchers(HttpMethod.POST, "/admin/article-generator/config").permitAll()
 				//任何 /admin 开头的路径下的请求都需要经过JWT验证
 				.antMatchers(HttpMethod.GET, "/admin/**").hasAnyRole("admin", "visitor")
 				.antMatchers("/admin/**").hasRole("admin")

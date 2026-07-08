@@ -1,5 +1,5 @@
 <template>
-	<div ref="nav" class="ui fixed inverted stackable pointing menu" :class="{'transparent':$route.name==='home' && clientSize.clientWidth>768}">
+		<div ref="nav" class="ui fixed inverted stackable pointing menu" :class="{'transparent':$route.name==='home' && clientSize.clientWidth>768, 'scrolled':scrolledNav}">
 		<div class="ui container">
 			<router-link to="/">
 				<h3 class="ui header item m-blue">{{ blogName }}</h3>
@@ -27,6 +27,12 @@
 			<router-link to="/about" class="item" :class="{'m-mobile-hide': mobileHide,'active':$route.name==='about'}">
 				<i class="info icon"></i>关于我
 			</router-link>
+			<a href="/mineradio/" target="_blank" class="item" :class="{'m-mobile-hide': mobileHide}">
+				<i class="music icon"></i>音乐
+			</a>
+			<a href="/admin/" target="_blank" class="item" :class="{'m-mobile-hide': mobileHide}">
+				<i class="user secret icon"></i>管理
+			</a>
 			<el-autocomplete v-model="queryString" :fetch-suggestions="debounceQuery" placeholder="Search..."
 			                 class="right item m-search" :class="{'m-mobile-hide': mobileHide}"
 			                 popper-class="m-search-item" @select="handleSelect">
@@ -62,6 +68,7 @@
 		data() {
 			return {
 				mobileHide: true,
+				scrolledNav: false,
 				queryString: '',
 				queryResult: [],
 				timer: null
@@ -79,6 +86,7 @@
 		mounted() {
 			//监听页面滚动位置，改变导航栏的显示
 			window.addEventListener('scroll', () => {
+				this.scrolledNav = window.scrollY > 50
 				//首页且不是移动端
 				if (this.$route.name === 'home' && this.clientSize.clientWidth > 768) {
 					if (window.scrollY > this.clientSize.clientHeight / 2) {

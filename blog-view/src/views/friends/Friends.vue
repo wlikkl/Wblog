@@ -112,4 +112,22 @@
 		margin-top: 5px !important;
 		margin-bottom: 7px;
 	}
+
+	/* 页面描述区域（info.content）文字提亮 */
+	.ui.attached.segment .typo.content,
+	.ui.attached.segment .typo.content *,
+	.ui.attached.segment .typo.content p,
+	.ui.attached.segment .typo.content li,
+	.ui.attached.segment .typo.content a,
+	.ui.attached.segment .typo.content strong {
+		color: var(--text-primary) !important;
+	}
+
+	.ui.attached.segment .typo.content a {
+		color: var(--accent) !important;
+	}
+
+	.ui.attached.segment .typo.content a:hover {
+		color: var(--accent-2) !important;
+	}
 </style>

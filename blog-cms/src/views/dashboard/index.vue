@@ -350,7 +350,7 @@
 										width: 2
 									},
 									areaStyle: {
-										color: '#f3f8ff'
+										color: 'rgba(56, 136, 250, 0.15)'
 									}
 								}
 							},
@@ -393,11 +393,11 @@
 				})
 			},
 			initCategoryEcharts() {
-				this.categoryEcharts = echarts.init(this.$refs.categoryEcharts, 'light')
+				this.categoryEcharts = echarts.init(this.$refs.categoryEcharts)
 				this.categoryEcharts.setOption(this.categoryOption)
 			},
 			initTagEcharts() {
-				this.tagEcharts = echarts.init(this.$refs.tagEcharts, 'light')
+				this.tagEcharts = echarts.init(this.$refs.tagEcharts)
 				this.tagEcharts.setOption(this.tagOption)
 			},
 			initMapEcharts() {

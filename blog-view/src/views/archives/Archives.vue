@@ -103,18 +103,18 @@
 		width: 10px;
 		height: 10px;
 		margin-left: -27px;
-		background: #fff;
-		border-color: inherit;
+		background: var(--accent);
+		border-color: var(--bg-primary);
 		border-style: solid;
 		border-width: 3px;
 		border-radius: 50%;
 		content: "";
-		box-shadow: 0 0 0 4px #fff;
+		box-shadow: 0 0 0 4px rgba(167,139,250,0.2);
 	}
 
 	.tl-wrap:hover:before {
 		background: 0 0;
-		border-color: #fff;
+		border-color: var(--accent);
 	}
 
 	.tl-title {
